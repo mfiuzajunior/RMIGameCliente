@@ -3,7 +3,6 @@ package br.edu.ifce.mflj.view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.util.UUID;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,9 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import br.edu.ifce.mflj.comunicacao.CanalDeComunicacao;
 import br.edu.ifce.mflj.comunicacao.Pacote;
 import br.edu.ifce.mflj.comunicacao.TipoPacote;
-import br.edu.ifce.mflj.conectividade.CanalDeComunicacao;
 import br.edu.ifce.mflj.dados.DimensoesTabuleiro;
 import br.edu.ifce.mflj.observer.MovimentoListener;
 
@@ -164,7 +163,7 @@ public class JanelaInicial implements MovimentoListener {
 		canalDeComunicacao.addCanalListener( listaDeUsuarios );
 		canalDeComunicacao.addCanalListener( panelTabuleiro );
 
-		canalDeComunicacao.enviarPacote( new Pacote( TipoPacote.CHECK_IN, UUID.randomUUID().toString(), null, apelido ) );
+		canalDeComunicacao.enviarPacote( new Pacote( TipoPacote.CHECK_IN, canalDeComunicacao.getId(), null, apelido ) );
 
 	}
 

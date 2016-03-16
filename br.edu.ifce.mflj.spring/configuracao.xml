@@ -21,14 +21,18 @@
 		<property name="botaoEnviarMensagem"		ref="beanBotaoEnviarMensagem"/>
 		<property name="textEditorDeMensagens"		ref="beanTextEditorDeMensagens"/>
 
-		<property name="canalDeComunicacao"			ref="canalDeComunicacao"/>
+		<property name="canalDeComunicacao"			ref="clienteRMI"/>
 		<property name="listaDeUsuarios"			ref="beanListaDeUsuarios"/>
 		<property name="panelTabuleiro"				ref="beanPanelTabuleiro"/>
 	</bean>
 
 	<bean id="logDeMensagens"					class="br.edu.ifce.mflj.view.LogDeMensagens"/>
 	<bean id="beanListaDeUsuarios"				class="br.edu.ifce.mflj.view.ListaDeUsuarios"/>
-	<bean id="canalDeComunicacao"				class="br.edu.ifce.mflj.conectividade.sockets.ClienteSocket"/>
+	<bean id="clienteRMI"						class="br.edu.ifce.mflj.remote.ClienteRMI"/>
+
+	<bean id="registrador" class="br.edu.ifce.mflj.remote.Registrador">
+		<property name="cliente" ref="clienteRMI"/>
+	</bean>
 
 	<bean id="regraDoEspacoDiponivel"	class="br.edu.ifce.mflj.jogo.RegraEspacoDisponivel"/>
 
